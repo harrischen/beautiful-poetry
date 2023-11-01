@@ -1,4 +1,6 @@
 .DS_Store
+.env
+.sequelize-auto
 **/node_modules
 **/bin
 **/dist
