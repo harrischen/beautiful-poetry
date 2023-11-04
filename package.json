@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "source .env && node index.js",
+    "dev": "source .env && nodemon index.js",
     "model": "source .env && node .sequelize-auto"
   },
   "author": "",
@@ -21,6 +21,7 @@
     "node": ">=12.0.0"
   },
   "devDependencies": {
+    "nodemon": "^3.0.1",
     "sequelize-auto": "^0.8.8"
   }
 }
