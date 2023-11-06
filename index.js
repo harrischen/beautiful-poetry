@@ -3,8 +3,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const express = require("express");
 const { init: initDB, Counter } = require("./db");
+const { getIdiomList } = require("./controller/idiom/list");
 const { getDictionaryList } = require("./controller/dictionary/list");
-const { getDictionarySearch } = require("./controller/dictionary/search");
 
 const logger = morgan("tiny");
 
@@ -47,6 +47,16 @@ app.get("/api/count", async (req, res) => {
 // 获取字典列表
 app.get("/api/dictionary/list", async (req, res) => {
   const { code, message, data } = await getDictionaryList(req);
+  res.send({
+    code,
+    message,
+    data,
+  });
+});
+
+// 获取成语列表
+app.post("/api/idiom/list", async (req, res) => {
+  const { code, message, data } = await getIdiomList(req);
   res.send({
     code,
     message,
