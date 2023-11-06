@@ -3,7 +3,7 @@ const { Dictionary } = require("../../db");
 const { getDictionaryList } = require("./list");
 
 module.exports.getDictionarySearch = async (req) => {
-  const { word = "" } = req.query;
+  const { word = "" } = req.body;
   if (!word.trim()) {
     return await getDictionaryList(req);
   }

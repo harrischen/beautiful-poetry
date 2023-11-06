@@ -45,7 +45,7 @@ app.get("/api/count", async (req, res) => {
 });
 
 // 获取字典列表
-app.get("/api/dictionary/list", async (req, res) => {
+app.post("/api/dictionary/list", async (req, res) => {
   const { code, message, data } = await getDictionaryList(req);
   res.send({
     code,
