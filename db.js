@@ -64,4 +64,6 @@ module.exports = {
   Counter,
   Dictionary,
   Idiom,
+  Author,
+  Poetry,
 };
