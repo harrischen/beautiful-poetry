@@ -4,9 +4,13 @@ const morgan = require("morgan");
 const express = require("express");
 const { init: initDB, Counter } = require("./db");
 const { getIdiomList } = require("./controller/idiom/list");
-const { getDictionaryList } = require("./controller/dictionary/list");
+const { getIdiomDetail } = require("./controller/idiom/detail");
+
 const { getPoetryList } = require("./controller/poetry/list");
 const { getPoetryDetail } = require("./controller/poetry/detail");
+
+const { getDictionaryList } = require("./controller/dictionary/list");
+const { getDictionaryDetail } = require("./controller/dictionary/detail");
 
 const logger = morgan("tiny");
 
@@ -55,10 +59,26 @@ app.post("/api/dictionary/list", async (req, res) => {
     data,
   });
 });
+app.post("/api/dictionary/detail", async (req, res) => {
+  const { code, message, data } = await getDictionaryDetail(req);
+  res.send({
+    code,
+    message,
+    data,
+  });
+});
 
 // 获取成语列表
 app.post("/api/idiom/list", async (req, res) => {
   const { code, message, data } = await getIdiomList(req);
+  res.send({
+    code,
+    message,
+    data,
+  });
+});
+app.post("/api/idiom/detail", async (req, res) => {
+  const { code, message, data } = await getIdiomDetail(req);
   res.send({
     code,
     message,
@@ -75,7 +95,6 @@ app.post("/api/poetry/list", async (req, res) => {
     data,
   });
 });
-
 app.post("/api/poetry/detail", async (req, res) => {
   const { code, message, data } = await getPoetryDetail(req);
   res.send({

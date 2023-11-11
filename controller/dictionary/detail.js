@@ -1,6 +1,6 @@
-const { Poetry } = require("../../db");
+const { Dictionary } = require("../../db");
 
-module.exports.getPoetryDetail = async (req) => {
+module.exports.getDictionaryDetail = async (req) => {
   const { id = 0 } = req.body;
   if (!id) {
     return {
@@ -19,7 +19,7 @@ module.exports.getPoetryDetail = async (req) => {
     cache: true,
   };
 
-  const res = await Poetry.findOne(params);
+  const res = await Dictionary.findOne(params);
 
   return {
     code: 0,

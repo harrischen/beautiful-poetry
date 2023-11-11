@@ -1,6 +1,6 @@
-const { Poetry } = require("../../db");
+const { Idiom } = require("../../db");
 
-module.exports.getPoetryDetail = async (req) => {
+module.exports.getIdiomDetail = async (req) => {
   const { id = 0 } = req.body;
   if (!id) {
     return {
@@ -19,7 +19,7 @@ module.exports.getPoetryDetail = async (req) => {
     cache: true,
   };
 
-  const res = await Poetry.findOne(params);
+  const res = await Idiom.findOne(params);
 
   return {
     code: 0,
