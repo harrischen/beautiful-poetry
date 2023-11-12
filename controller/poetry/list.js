@@ -23,7 +23,7 @@ module.exports.getPoetryList = async (req) => {
       "intro",
       "annotation",
     ],
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,

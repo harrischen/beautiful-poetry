@@ -17,7 +17,7 @@ module.exports.getIdiomList = async (req) => {
       "pinyin",
       "abbreviation",
     ],
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,

@@ -9,7 +9,7 @@ module.exports.getDictionaryList = async (req) => {
 
   const params = {
     attributes: ["id", "word", "pinyin", "radicals", "wubi"],
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,

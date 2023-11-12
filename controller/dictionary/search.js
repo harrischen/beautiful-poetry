@@ -24,7 +24,7 @@ module.exports.getDictionarySearch = async (req) => {
   const params = {
     attributes: ["id", "word", "pinyin", "radicals", "wubi"],
     where: /^[a-zA-Z|\s]+$/.test(keyword) ? whereSpelling : whereWord,
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,

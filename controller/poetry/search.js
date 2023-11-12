@@ -29,7 +29,7 @@ module.exports.getPoetrySearch = async (req) => {
         [Op.like]: `%${decodeURIComponent(word.trim())}%`,
       },
     },
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,

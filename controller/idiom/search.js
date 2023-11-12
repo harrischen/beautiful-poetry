@@ -29,7 +29,7 @@ module.exports.getIdiomSearch = async (req) => {
     where: {
       word: type === "word" ? whereWord : whereAbbreviation,
     },
-    order: [["id", "DESC"]],
+    order: [["id", "ASC"]],
     offset: 0,
     limit: 10,
     cache: true,
