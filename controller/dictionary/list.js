@@ -16,14 +16,14 @@ module.exports.getDictionaryList = async (req) => {
   };
 
   const { count: totalRows, rows } = await Dictionary.findAndCountAll(params);
-  const totalPage = Math.ceil(totalRows / params.limit);
+  const totalPages = Math.ceil(totalRows / params.limit);
 
   return {
     code: 0,
     message: "success",
     data: {
       totalRows,
-      totalPage,
+      totalPages,
       rows,
     },
   };
