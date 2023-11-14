@@ -25,7 +25,7 @@ module.exports.getPoetryList = async (req) => {
     ],
     order: [["id", "ASC"]],
     offset: 0,
-    limit: 10,
+    limit: 20,
     cache: true,
   };
 

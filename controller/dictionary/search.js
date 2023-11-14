@@ -26,7 +26,7 @@ module.exports.getDictionarySearch = async (req) => {
     where: /^[a-zA-Z|\s]+$/.test(keyword) ? whereSpelling : whereWord,
     order: [["id", "ASC"]],
     offset: 0,
-    limit: 10,
+    limit: 50,
     cache: true,
   };
 

@@ -11,7 +11,7 @@ module.exports.getDictionaryList = async (req) => {
     attributes: ["id", "word", "pinyin", "radicals", "wubi"],
     order: [["id", "ASC"]],
     offset: 0,
-    limit: 10,
+    limit: 50,
     cache: true,
   };
 
