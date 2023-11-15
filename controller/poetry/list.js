@@ -2,7 +2,7 @@ const { Poetry } = require("../../db");
 const { getPoetrySearch } = require("./search");
 
 module.exports.getPoetryList = async (req) => {
-  const { word = "" } = req.body;
+  const { word = "", pageLimit = "20", pageOffset = "0" } = req.body;
   if (word.trim()) {
     return await getPoetrySearch(req);
   }
@@ -24,8 +24,8 @@ module.exports.getPoetryList = async (req) => {
       "annotation",
     ],
     order: [["id", "ASC"]],
-    offset: 0,
-    limit: 20,
+    offset: parseInt(pageOffset, 10),
+    limit: parseInt(pageLimit, 10),
     cache: true,
   };
 

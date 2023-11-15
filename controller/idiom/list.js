@@ -2,7 +2,7 @@ const { Idiom } = require("../../db");
 const { getIdiomSearch } = require("./search");
 
 module.exports.getIdiomList = async (req) => {
-  const { word = "" } = req.body;
+  const { word = "", pageLimit = "50", pageOffset = "0" } = req.body;
   if (word.trim()) {
     return await getIdiomSearch(req);
   }
@@ -18,8 +18,8 @@ module.exports.getIdiomList = async (req) => {
       "abbreviation",
     ],
     order: [["id", "ASC"]],
-    offset: 0,
-    limit: 50,
+    offset: parseInt(pageOffset, 10),
+    limit: parseInt(pageLimit, 10),
     cache: true,
   };
 

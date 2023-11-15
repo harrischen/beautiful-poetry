@@ -2,7 +2,7 @@ const { Dictionary } = require("../../db");
 const { getDictionarySearch } = require("./search");
 
 module.exports.getDictionaryList = async (req) => {
-  const { word = "" } = req.body;
+  const { word = "", pageLimit = "50", pageOffset = "0" } = req.body;
   if (word.trim()) {
     return await getDictionarySearch(req);
   }
@@ -10,8 +10,8 @@ module.exports.getDictionaryList = async (req) => {
   const params = {
     attributes: ["id", "word", "pinyin", "radicals", "wubi"],
     order: [["id", "ASC"]],
-    offset: 0,
-    limit: 50,
+    offset: parseInt(pageOffset, 10),
+    limit: parseInt(pageLimit, 10),
     cache: true,
   };
 

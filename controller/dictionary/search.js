@@ -3,7 +3,7 @@ const { Dictionary } = require("../../db");
 const { getDictionaryList } = require("./list");
 
 module.exports.getDictionarySearch = async (req) => {
-  const { word = "" } = req.body;
+  const { word = "", pageLimit = "50", pageOffset = "0" } = req.body;
   if (!word.trim()) {
     return await getDictionaryList(req);
   }
@@ -25,8 +25,8 @@ module.exports.getDictionarySearch = async (req) => {
     attributes: ["id", "word", "pinyin", "radicals", "wubi"],
     where: /^[a-zA-Z|\s]+$/.test(keyword) ? whereSpelling : whereWord,
     order: [["id", "ASC"]],
-    offset: 0,
-    limit: 50,
+    offset: parseInt(pageOffset, 10),
+    limit: parseInt(pageLimit, 10),
     cache: true,
   };
 
